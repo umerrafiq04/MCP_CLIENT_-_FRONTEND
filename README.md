@@ -121,17 +121,6 @@ Handles financial records:
 * View expenses
 * Delete expenses
 * Manage expense database
-
----
-
-# 🔗 Related Repositories
-
-👉 MCP Server Repository
-`https://github.com/umerrafiq04/MCP_SERVER`
-
-👉 MCP Client Logic Repository
-`https://github.com/umerrafiq04/MCP_CLIENT`
-
 ---
 
 # 💬 Frontend (Streamlit)
@@ -312,4 +301,19 @@ This project demonstrates a fully functional, multi-server MCP-based AI system w
 ✔ Real-world file & database operations
 ✔ Professional engineering practices
 ✔ Production-ready structure
+
+---
+
+# 🔗 Related Repositories
+
+This repository is part of a larger MCP architecture:
+
+- 🧠 **MCP Client (Async Tool Orchestration)**  
+  https://github.com/umerrafiq04/MCP_CLIENT
+
+- 🛠️ **MCP Server (Tool Execution Layer)**  
+  https://github.com/umerrafiq04/MCP_SERVER
+
+---
+
 
