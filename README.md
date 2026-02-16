@@ -1,17 +1,19 @@
 # 🚀 MCP AI Assistant
 
-### Multi-Server Tool-Enabled AI System using MCP, FastAPI & Streamlit
+### Multi-Server Tool-Enabled AI System using MCP, LangGraph, FastAPI & Streamlit
 
-An enterprise-style AI assistant built using the **Model Context Protocol (MCP)** architecture.
+An enterprise-style AI assistant built using the **Model Context Protocol (MCP)** architecture and enhanced with **LangGraph-based orchestration**.
 
-This system connects:
+This system demonstrates a production-grade AI architecture combining:
 
-* 🎨 **Streamlit Frontend** (User Interface)
-* ⚡ **FastAPI Backend API Layer**
-* 🧠 **Async MCP Client (LLM + Tool Orchestration)**
-* 🛠️ **Multiple MCP Servers (Desktop + Expense Database)**
+* Tool-enabled LLM reasoning
+* Multi-server MCP integration
+* Secure file operations
+* PDF intelligence workflows
+* Database-backed expense tracking
+* Modular and scalable design
 
-Designed with production-level architecture principles and modular scalability.
+Designed with real-world engineering principles and layered system architecture.
 
 ---
 
@@ -33,14 +35,15 @@ Designed with production-level architecture principles and modular scalability.
                                 │ Async Call
                                 ▼
                 ┌────────────────────────────┐
-                │         MCP Client         │
-                │  LLM + Tool Decision Logic │
+                │         LangGraph          │
+                │  LLM + Tool Orchestration  │
                 └───────────────┬────────────┘
                                 │ MCP Protocol
                                 ▼
         ┌──────────────────────────────────────────┐
         │              MCP Servers                 │
         │  • Desktop File Operations Server        │
+        │  • PDF Processing Server                 │
         │  • Expense Database Management Server    │
         └──────────────────────────────────────────┘
 ```
@@ -51,53 +54,58 @@ Designed with production-level architecture principles and modular scalability.
 
 ### 1️⃣ User Interaction
 
-User sends message via Streamlit UI.
+User sends a message via the Streamlit UI.
 
 ### 2️⃣ API Layer
 
-FastAPI receives full session conversation.
+FastAPI receives the full session conversation and forwards it to the LangGraph execution layer.
 
-### 3️⃣ MCP Client Processing
+### 3️⃣ LangGraph Orchestration
 
-The async MCP client:
+LangGraph is responsible for:
 
-* Binds tools to LLM
-* Detects tool calls
-* Executes tools dynamically
-* Feeds tool results back to model
-* Generates final structured response
+* Binding MCP tools dynamically to the LLM
+* Detecting tool calls automatically
+* Routing execution to the appropriate MCP server
+* Feeding tool results back into conversation state
+* Generating a structured final response
+
+This removes manual tool-loop logic and enables scalable multi-step reasoning.
 
 ### 4️⃣ Tool Execution
 
-Connected MCP servers execute:
+Connected MCP servers execute domain-specific operations:
 
-* File operations on Desktop
+* Secure file operations on Desktop
+* PDF reading and structured document analysis
 * Expense management in database
 
 ### 5️⃣ Response Delivery
 
-Final AI response is returned to Streamlit and displayed in human-style chat format.
+The final AI response is returned to Streamlit and displayed in a human-style chat format.
 
 ---
 
-# 🧠 MCP Client (Core Intelligence Layer)
+# 🧠 LangGraph (Core Intelligence & Orchestration Layer)
 
-The MCP Client is responsible for:
+LangGraph acts as the structured reasoning engine between the LLM and external tools.
 
-* Async execution
-* Tool binding with LLM
+### Responsibilities:
+
 * Tool call detection
-* Secure tool invocation
-* Multi-server orchestration
+* Conditional routing
+* Async tool execution
+* State management
+* Multi-step reasoning
 * Context-aware conversation handling
 
 ### Key Characteristics
 
-* Uses `async/await`
+* Uses async/await
+* Dynamically binds tools
 * Supports multi-server MCP configuration
-* Binds tools dynamically
-* Sends full session history for context
-* Returns structured AI responses
+* Sends full session history for contextual reasoning
+* Eliminates manual while-loop tool execution
 
 ---
 
@@ -113,14 +121,46 @@ Handles secure file operations:
 * Path validation
 * Safe directory resolution
 
-## 2️⃣ Expense Database MCP Server
+Used for:
 
-Handles financial records:
+* Saving generated receipts
+* Managing automation files
+* Controlled Desktop operations
+
+---
+
+## 2️⃣ PDF Processing MCP Server
+
+Dedicated to document-based workflows:
+
+* Read and extract content from PDF files
+* Analyze technical skills from documents
+* Support structured data extraction
+* Perform document-driven automation
+
+Used for:
+
+* Skill extraction
+* Learning roadmap generation
+* AI-driven document intelligence
+
+---
+
+## 3️⃣ Expense Database MCP Server
+
+Handles financial record management:
 
 * Add expenses
 * View expenses
 * Delete expenses
-* Manage expense database
+* Manage structured expense database
+
+Used for:
+
+* Logging AI-estimated costs
+* Skill development tracking
+* Financial automation workflows
+
 ---
 
 # 💬 Frontend (Streamlit)
@@ -140,7 +180,7 @@ The frontend provides:
 FastAPI acts as:
 
 * API gateway
-* Async bridge between UI and MCP client
+* Async bridge between UI and LangGraph
 * Stateless request handler
 * Context forwarder
 
@@ -151,82 +191,35 @@ FastAPI acts as:
 ```
 MCP_CLIENT_-_FRONTEND/
 │
-├── fastapi_backend.py                # FastAPI backend API layer
-├── fastapi_frontend.py           # Streamlit chat UI
-├── client/mcp_client.py         # Async MCP client logic
-├── .env                  # Environment variables
+├── fastapi_backend.py        # FastAPI backend API layer
+├── fastapi_frontend.py       # Streamlit chat UI
+├── logic/app.py              # LangGraph orchestration layer
+├── client/mcp_client.py      # Async MCP client logic
+├── .env
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-# 🔐 Environment Variables
+# 🖼️ Demo Screenshots
 
-Create a `.env` file:
+## Example Prompt
 
-```
-OPENAI_API_KEY=your_api_key_here
-```
+<img width="1920" height="1008" alt="MCP AI Assistant - Google Chrome 17-02-2026 00_23_52" src="https://github.com/user-attachments/assets/a9c2a7b9-699d-4aee-a171-675aa1097199" />
 
----
 
-# ⚙️ Installation Guide
+## AI Response
+<img width="1920" height="1008" alt="MCP AI Assistant - Google Chrome 17-02-2026 00_24_03" src="https://github.com/user-attachments/assets/60f4411a-c05c-4cae-801d-bd2e37425063" />
 
-## 1️⃣ Clone Repository
 
-```bash
-git clone https://github.com/umerrafiq04/MCP_CLIENT_-_FRONTEND.git
-cd MCP_CLIENT_-_FRONTEND
-```
+## File Creation & Database Logging
+<img width="1920" height="1008" alt="fastapi_backend py - frontend2 - Visual Studio Code 17-02-2026 00_24_36" src="https://github.com/user-attachments/assets/a99704da-3c5a-4dc0-9ef6-7e58941911f5" />
+<img width="1920" height="1010" alt="skill_mastery_receipt txt - Notepad 17-02-2026 00_24_48" src="https://github.com/user-attachments/assets/2c681ce0-811d-49f4-a7a1-6669b4b85cd9" />
 
 ---
 
-## 2️⃣ Create Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-Activate:
-
-```bash
-.venv\Scripts\activate
-```
-
----
-
-## 3️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 4️⃣ Start FastAPI Backend
-
-```bash
-uvicorn api:app --reload
-```
-
-Runs on:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-## 5️⃣ Start Streamlit Frontend
-
-```bash
-streamlit run frontend.py
-```
-
----
-
-# 🔒 Security Measures
+# 🔐 Security Measures
 
 * Desktop path resolution protection
 * Prevents path traversal attacks
@@ -245,7 +238,7 @@ streamlit run frontend.py
 * Modular MCP server design
 * Stateless API gateway
 * Context-aware LLM usage
-* Production-ready layering
+* Production-ready layered architecture
 
 ---
 
@@ -255,28 +248,15 @@ The architecture supports:
 
 * Adding new MCP servers
 * Adding new tools without frontend modification
-* Replacing LLM model easily
+* Replacing LLM models easily
 * Deploying API and UI separately
 * Multi-user session expansion
 * Database-backed memory integration
-
 ---
-
-# 🚀 Future Improvements
-
-* Streaming token responses
-* Redis-backed memory
-* Multi-user session isolation
-* Authentication layer
-* Docker containerization
-* Cloud deployment (AWS / GCP)
-* CI/CD integration
-
----
-
 # 🧪 Example Use Cases
 
 * Desktop file automation
+* AI-driven PDF skill extraction
 * Personal AI assistant
 * Financial tracking system
 * Tool-based LLM experimentation
@@ -287,33 +267,31 @@ The architecture supports:
 # 👨‍💻 Author
 
 **Umer Rafiq**
-BTech CSE 
+BTech CSE
 
 ---
 
-
 # 🌟 Summary
 
-This project demonstrates a fully functional, multi-server MCP-based AI system with:
+This project demonstrates a fully functional, multi-server MCP-based AI system enhanced with LangGraph orchestration:
 
 ✔ Clean architecture
 ✔ Async tool execution
+✔ Multi-server integration
 ✔ Real-world file & database operations
-✔ Professional engineering practices
-✔ Production-ready structure
+✔ Structured LLM reasoning
+✔ Production-ready design
 
 ---
 
 # 🔗 Related Repositories
 
-This repository is part of a larger MCP architecture:
+This repository is part of a larger MCP architecture ecosystem:
 
-- 🧠 **MCP Client (Async Tool Orchestration)**  
-  https://github.com/umerrafiq04/MCP_CLIENT
+🧠 **MCP Client (Async Tool Orchestration)**
+[https://github.com/umerrafiq04/MCP_CLIENT](https://github.com/umerrafiq04/MCP_CLIENT)
 
-- 🛠️ **MCP Server (Tool Execution Layer)**  
-  https://github.com/umerrafiq04/MCP_SERVER
+🛠️ **MCP Server (Tool Execution Layer)**
+[https://github.com/umerrafiq04/MCP_SERVER](https://github.com/umerrafiq04/MCP_SERVER)
 
 ---
-
-
