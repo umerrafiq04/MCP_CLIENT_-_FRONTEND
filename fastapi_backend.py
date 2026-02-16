@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Dict
-from client.mcp_client import run_model
+from client.app import run_model
 
 app = FastAPI()
 
