@@ -29,8 +29,7 @@ load_dotenv()
 from langchain_mistralai import ChatMistralAI
 
 llm = ChatMistralAI(
-    model="mistral-large-latest",
-    mistral_api_key="UrCYglGgzvCqzSSEEaewBCkM9QUITI9p" 
+    model="mistral-large-latest"
 )
 
 # -----------------------
@@ -571,3 +570,4 @@ async def stream_model(messages: list):
 #         if delta:
 #             last_output = content
 #             yield delta
+
