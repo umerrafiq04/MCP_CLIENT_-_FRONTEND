@@ -421,12 +421,7 @@ This project demonstrates a **fully functional multi-server MCP-based AI system 
 
 # 🔗 Related Repositories
 
-This repository is part of a **larger MCP architecture ecosystem**.
-
-### 🧠 MCP Client (Async Tool Orchestration)
-
-[https://github.com/umerrafiq04/MCP_CLIENT](https://github.com/umerrafiq04/MCP_CLIENT)
-
-### 🛠️ MCP Server (Tool Execution Layer)
+### 🛠️ MCP Server(Tools)
 
 [https://github.com/umerrafiq04/MCP_SERVER](https://github.com/umerrafiq04/MCP_SERVER)
+
